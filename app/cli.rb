@@ -41,32 +41,51 @@ class CLI
     end
 
     def startPlanet
-        puts "1. insert nmae"
-        input = gets.strip
+        puts "Please Enter what planet you would like to learn more about"
+        inputPlanet = (gets.strip).capitalize   
 
-        if input == "1"
-            planetNames = GetPlanet.new.getPlanetName
-            planetGravs = GetPlanet.new.getPlanetGravity
-            planetDensities = GetPlanet.new.getPlanetDensity
-            planetPerihelions = GetPlanet.new.getPlanetPerihelion
-            planetAphelions = GetPlanet.new.getPlanetAphelion
-            planetEccentrics = GetPlanet.new.getPlanetEccentric
-            planetVelocities = GetPlanet.new.getEscapeVelocity
-            planetRadii = GetPlanet.new.getRadius
-            planetTypes = GetPlanet.new.getType
-            planetDiscoveryNames = GetPlanet.new.getDiscoveryName
-            planetDiscoveryDates = GetPlanet.new.getDiscoveryDate
+        puts "What would you like to know about the #{inputPlanet}"
+        puts "1. What is the GRAVITY like?"
+        puts "2. What is the DENSITY of the planet?"
+        puts "3. The PERIHELION?"
+        puts "4. The APHELION?"
+        puts "5. The ECCENTRICITY?"
+        puts "6. The VELOCITY?"
+        puts "7. The RADIUS?"
+        puts "8. What type of BODY is it?"
+        puts "9. Who DISCOVERED it?"
+        input = (gets.strip).upcase
 
-
-            data = planetNames.zip(planetGravs, planetDensities, planetPerihelions, planetAphelions, 
-                                   planetEccentrics, planetVelocities, planetRadii, planetTypes, planetDiscoveryNames, planetDiscoveryDates)
-            data.each do |planetName, planetGrav, planetDensity, planetPerihelion, planetAphelion, 
-                          planetEccentric, planetVelocity, planetRadius, planetType, planetDiscoveryName, planetDiscoveryDate|
-                Planet.create({name: planetName, gravity: planetGrav, density: planetDensity, perihelion: planetPerihelion, aphelion: planetAphelion,
-                               eccentricity: planetEccentric, escape_velocity: planetVelocity, radius: planetRadius, body_type: planetType,
-                               discovered_by: planetDiscoveryName, discovery_date: planetDiscoveryDate})
-            end 
-        end            
+        if input == "1" || input == "GRAVITY"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "The surface gravity on #{inputPlanet} is #{planet.gravity} m.s^-2".green
+        elsif input == "2" || input == "DENSITY"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "The density of #{inputPlanet} is #{planet.density} g.cm^3".green
+        elsif input == "3" || input == "PERIHELION"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "The perihelion (the closest it will be to the sun) of #{inputPlanet} is #{planet.perihelion} km".green
+        elsif input == "4" || input == "APHELION"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "The aphelion (the farthest it will be from thes sun) of #{inputPlanet} is #{planet.aphelion} km".green
+        elsif input == "5" || input == "ECCENTRICITY"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "The eccentricity factor of #{inputPlanet} is #{planet.eccentricity}".green
+        elsif input == "6" || input == "VELOCITY"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "To escape #{inputPlanet} an object must travel at #{planet.escape_velocity} m.s^-1".green
+        elsif input == "7" || input == "RADIUS"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "The radius of #{inputPlanet} is #{planet.radius} km".green
+        elsif input == "8" || input == "BODY"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "#{inputPlanet} is a #{planet.body_type} type".green
+        elsif input == "9" || input == "DISCOVERED"
+            planet = Planet.find_by(name: inputPlanet)
+            puts "#{inputPlanet} was discovered by #{planet.discovered_by} on #{planet.discovery_date}".green
+        elsif
+            puts "Enter a valid planet"
+        end
     end
 end
 

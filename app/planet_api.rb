@@ -90,10 +90,55 @@ class GetPlanet
         end
     end
 
+    # def getMassValue
+    #     planetMass = JSON.parse(self.getPlanetUrl)
+    #     planetMass["bodies"].collect do |massV|
+    #         mass["mass"] ? mass["mass"]["massValue"] : nil
+    #     end
+    # end
+
+    # def getMassExp
+    #     planetMass = JSON.parse(self.getPlanetUrl)
+    #     planetMass["bodies"].collect do |massE|
+    #         mass["mass"] ? mass["mass"]["massExponent"] : nil
+    #     end
+    # end
+
 end
 
+# mass = GetPlanet.new.getMassExp
+# puts mass
 
 
+
+
+
+
+
+
+# if input == "1"
+#     planetNames = GetPlanet.new.getPlanetName
+#     planetGravs = GetPlanet.new.getPlanetGravity
+#     planetDensities = GetPlanet.new.getPlanetDensity
+#     planetPerihelions = GetPlanet.new.getPlanetPerihelion
+#     planetAphelions = GetPlanet.new.getPlanetAphelion
+#     planetEccentrics = GetPlanet.new.getPlanetEccentric
+#     planetVelocities = GetPlanet.new.getEscapeVelocity
+#     planetRadii = GetPlanet.new.getRadius
+#     planetTypes = GetPlanet.new.getType
+#     planetDiscoveryNames = GetPlanet.new.getDiscoveryName
+#     planetDiscoveryDates = GetPlanet.new.getDiscoveryDate
+
+
+#     data = planetNames.zip(planetGravs, planetDensities, planetPerihelions, planetAphelions, 
+#                            planetEccentrics, planetVelocities, planetRadii, planetTypes, planetDiscoveryNames, planetDiscoveryDates)
+#     data.each do |planetName, planetGrav, planetDensity, planetPerihelion, planetAphelion, 
+#                   planetEccentric, planetVelocity, planetRadius, planetType, planetDiscoveryName, planetDiscoveryDate|
+#         Planet.create({name: planetName, gravity: planetGrav, density: planetDensity, perihelion: planetPerihelion, aphelion: planetAphelion,
+#                        eccentricity: planetEccentric, escape_velocity: planetVelocity, radius: planetRadius, body_type: planetType,
+#                        discovered_by: planetDiscoveryName, discovery_date: planetDiscoveryDate})
+#     end 
+# end         
 
 
 

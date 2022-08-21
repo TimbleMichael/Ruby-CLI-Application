@@ -25,5 +25,4 @@ ActiveRecord::Schema.define(version: 1) do
     t.string "discovered_by"
     t.string "discovery_date"
   end
-
 end

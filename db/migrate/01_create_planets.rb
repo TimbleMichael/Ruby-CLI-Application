@@ -12,8 +12,6 @@ class CreatePlanets < ActiveRecord::Migration[6.1]
             t.string :body_type
             t.string :discovered_by
             t.string :discovery_date
-
-
         end
     end
 end
